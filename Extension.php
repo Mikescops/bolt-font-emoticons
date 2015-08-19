@@ -1,11 +1,12 @@
 <?php
-// Livefyre comment thread Extension for Bolt
+// FontEmoticons comment thread Extension for Bolt
 
-namespace Bolt\Extension\Bolt\Livefyre;
+namespace Bolt\Extension\Mikescops\FontEmoticons;
 
+use Bolt\BaseExtension;
 use Bolt\Extensions\Snippets\Location as SnippetLocation;
 
-class Extension extends \Bolt\BaseExtension
+class Extension extends BaseExtension
 {
     public function getName()
     {
@@ -14,45 +15,34 @@ class Extension extends \Bolt\BaseExtension
 
     public function initialize()
     {
-        $this->addTwigFunction('emo-content', 'emo-content');
+        if ($this->app['config']->getWhichEnd()=== 'frontend'){
+            $this->addTwigFunction('emocontent', 'emocontent');
 
-        if (empty($this->config['content_replaced'])) { $this->config['content_replaced'] = "No content to replace set"; }
+            $this->addSnippet('aftercss', '<link rel="stylesheet" type="text/css" href="'. $this->app['paths']['extensions'] .'/local/mikescops/fontemoticons/css/fontello.css">');
+        }
     }
 
-    public function livefyre($title="")
+    public function emocontent($content="")
     {
-        $html = <<< EOM
-            
-            <link rel="stylesheet" type="text/css" href="/css/fontello.css">
-            
-            <script type="text/javascript">
-			function smiley(text)
-			{
-			var smiley_array =  [':)',':D','8)'];
-			var smiley_xhtml =  ['happy','grin','sunglasses'];
 
-			for (var i = 0; i< smiley_array.length; i++)
-			{
-				var word = smiley_array[i].replace(')','\\)');
-				word = new RegExp(word, 'gi');
-				var smiley_img = '<i class="icon-emo-' + smiley_xhtml[i] + '"></i>';    
-				text = text.replace(word, smiley_img);
-			}
-			return text;
-			}
-            
-            document.write(smiley("{{ record.%content% }}"));
-
-			</script>
-
-EOM;
-
-
-        $html = str_replace("%content%", $this->config['content_replaced'], $html);
+        $html = $this->smiley($content);
 
         return new \Twig_Markup($html, 'UTF-8');
     }
 
-    
+    function smiley($content) {
+        $smiley_array =  [':)',':D','8)'];
+$smiley_xhtml =  ['happy','grin','sunglasses'];
+
+for ($i = 0; $i<count($smiley_array); $i++)
+{
+    $word = $smiley_array[$i];
+    $smiley_img = '<i class="icon-emo-' . $smiley_xhtml[$i] . '"></i>';    
+    $content = str_replace($word, $smiley_img, $content);
+}
+return $content;
+}
+
+
 
 }

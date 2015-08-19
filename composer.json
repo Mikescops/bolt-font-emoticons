@@ -1,5 +1,5 @@
 {
-    "name": "mikescops/bolt-font-emoticons",
+    "name": "mikescops/fontemoticons",
     "description": "The extension detect smileys in your body and replace it by beautiful icons from Fontello.",
     "type": "bolt-extension",
     "keywords": ["font", "emoticons", "smileys"],
@@ -18,7 +18,7 @@
             "init.php"
         ],
         "psr-4": {
-            "Bolt\\Extension\\Bolt\\Livefyre\\": ""
+            "Bolt\\Extension\\Mikescops\\FontEmoticons\\": ""
         }
     }
 }
