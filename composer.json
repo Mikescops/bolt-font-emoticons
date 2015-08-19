@@ -1,0 +1,24 @@
+{
+    "name": "mikescops/bolt-font-emoticons",
+    "description": "The extension detect smileys in your body and replace it by beautiful icons from Fontello.",
+    "type": "bolt-extension",
+    "keywords": ["font", "emoticons", "smileys"],
+    "require": {
+        "bolt/bolt": ">=2.0.0,<3.0.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Corentin Mors",
+            "email": "mikescops@pixelswap.fr"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "init.php"
+        ],
+        "psr-4": {
+            "Bolt\\Extension\\Bolt\\Livefyre\\": ""
+        }
+    }
+}
