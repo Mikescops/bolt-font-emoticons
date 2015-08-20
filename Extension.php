@@ -18,7 +18,7 @@ class Extension extends BaseExtension
         if ($this->app['config']->getWhichEnd()=== 'frontend'){
             $this->addTwigFunction('emocontent', 'emocontent');
 
-            $this->addSnippet('aftercss', '<link rel="stylesheet" type="text/css" href="'. $this->app['paths']['extensions'] .'/local/mikescops/fontemoticons/css/fontello.css">');
+            $this->addSnippet('aftercss', '<link rel="stylesheet" type="text/css" href="'. $this->app['paths']['extensions'] .'/vendor/mikescops/fontemoticons/css/fontello.css">');
         }
     }
 
