@@ -8,3 +8,5 @@ Use it by simply placing the following in your template:
     {{ emocontent( record.body ) }}
     
 Replace record.body by what you want !
+
+Get it on [Bolt MarketPlace](https://market.bolt.cm/) !
