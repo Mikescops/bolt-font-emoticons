@@ -5,10 +5,21 @@
 
 The "Font Emoticons" detect smileys in any content and replace it by beautiful icons from Fontello. 
 
-Use it by simply placing the following in your template:
 
-    {{ emocontent( record.body ) }}
-    
-Replace record.body by what you want !
+## Install on bolt
 
 Get it on [Bolt MarketPlace](https://market.bolt.cm/) !
+Or use the extension manager in your Bolt administration panel.
+
+
+## How to use
+
+Use it by simply placing the following snippet in your template:
+
+
+```
+{{ emocontent( record.body ) }}
+```
+
+Replace `record.body` by what you want !
+
